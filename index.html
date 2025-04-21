@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Higher Ed Administrative Assistant GPT</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -114,6 +114,180 @@
             font-size: 0.875rem;
             margin-top: 0.25rem;
             display: none;
+        }
+
+        /* New styles for flip cards */
+        /* Better flip card styles with fixed dimensions */
+        .resource-carousel {
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #047857 #e2e8f0;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        .resource-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .resource-carousel::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        
+        .resource-carousel::-webkit-scrollbar-thumb {
+            background-color: #047857;
+            border-radius: 10px;
+        }
+        
+        .resource-track {
+            display: flex;
+            gap: 20px;
+            padding: 10px;
+            align-items: stretch;
+        }
+        
+        /* Fixed dimensions for all flip cards */
+        .flip-card {
+            background-color: transparent;
+            width: 280px;
+            height: 220px;
+            perspective: 1000px;
+            flex: 0 0 auto;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            border-radius: 0.5rem;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 0.5rem;
+        }
+        
+        .flip-card-front {
+            background-color: white;
+            color: #1a365d;
+        }
+        
+        .flip-card-back {
+            background-color: #1a365d;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #047857;
+        }
+        
+        .scroll-btn {
+            background-color: #047857;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-btn:hover {
+            background-color: #065f46;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .scroll-left {
+            left: 10px;
+        }
+        
+        .scroll-right {
+            right: 10px;
+        }
+        
+        .resource-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .category-tab {
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background-color: #e2e8f0;
+            color: #1a365d;
+        }
+        
+        .category-tab:hover {
+            background-color: #cbd5e0;
+        }
+        
+        .category-tab.active {
+            background-color: #047857;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .resource-wrapper {
+                padding: 0 40px;
+            }
+            
+            .scroll-btn {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .category-tabs {
+                gap: 5px;
+            }
+            
+            .category-tab {
+                padding: 6px 12px;
+                font-size: 0.875rem;
+            }
         }
     </style>
 </head>
@@ -258,6 +432,7 @@
         <!-- ✨🧠 Full Session Summary + GPT Prompt Kit (interactive card layout) -->
 <!-- If you’re not already using Alpine, the <details>/<summary> elements below
      give you built‑in, keyboard‑accessible toggle behaviour with no extra JS. -->
+
 
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12 text-navy">
@@ -509,131 +684,267 @@ Write 5 quick questions for a post-event feedback form that evaluates content, d
 </div>
 
     </section>
-<!-- Resources Tab Content -->
-	   <section id="resources" class="py-16 bg-gray-50">
-<div id="resources" class="tab-content py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12 text-navy">✨ AI Tools & Resources</h2>
 
-        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-lightbulb text-emerald mr-2"></i>
-                    <a href="https://notebooklm.google/" target="_blank" class="group-hover:underline">Google Notebook LM</a>
-                </h3>
-                <p class="text-gray-700">An AI-powered note-taking assistant that organizes and connects your ideas.</p>
+<!-- Resources Tab Content with Interactive Flip Cards -->
+    <section id="resources" class="py-16 bg-gray-50 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 text-navy">✨ AI Tools & Resources</h2>
+            <p class="text-center mb-8 max-w-2xl mx-auto">Discover powerful AI tools to enhance your productivity. <span class="font-bold text-emerald">Hover over a card to reveal more details!</span></p>
+            
+            <div class="category-tabs" role="tablist" aria-label="Resource categories">
+                <div class="category-tab active" data-category="all" role="tab" aria-selected="true" tabindex="0">All Tools</div>
+                <div class="category-tab" data-category="productivity" role="tab" aria-selected="false" tabindex="0">Productivity</div>
+                <div class="category-tab" data-category="content" role="tab" aria-selected="false" tabindex="0">Content Creation</div>
+                <div class="category-tab" data-category="visual" role="tab" aria-selected="false" tabindex="0">Visual & Media</div>
+                <div class="category-tab" data-category="audio" role="tab" aria-selected="false" tabindex="0">Audio & Transcription</div>
             </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-flask text-emerald mr-2"></i>
-                    <a href="https://aistudio.google.com/" target="_blank" class="group-hover:underline">Google AI Studio</a>
-                </h3>
-                <p class="text-gray-700">Explore Google’s generative AI tools and research for creative problem-solving.</p>
+            
+            <div class="resource-wrapper">
+                <button class="scroll-btn scroll-left" aria-label="Scroll left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="resource-carousel">
+                    <div class="resource-track">
+                        <!-- Google Notebook LM -->
+                        <div class="flip-card" data-category="productivity">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-lightbulb card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Google Notebook LM</h3>
+                                    <p class="text-sm">AI-powered note-taking</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Google Notebook LM</h3>
+                                    <p class="text-sm mb-4">An AI-powered note-taking assistant that organizes and connects your ideas.</p>
+                                    <a href="https://notebooklm.google/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Google AI Studio -->
+                        <div class="flip-card" data-category="productivity">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-flask card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Google AI Studio</h3>
+                                    <p class="text-sm">Generative AI tools</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Google AI Studio</h3>
+                                    <p class="text-sm mb-4">Explore Google's generative AI tools and research for creative problem-solving.</p>
+                                    <a href="https://aistudio.google.com/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Perplexity -->
+                        <div class="flip-card" data-category="productivity">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-search card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Perplexity</h3>
+                                    <p class="text-sm">AI-powered search</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Perplexity</h3>
+                                    <p class="text-sm mb-4">An AI-powered search assistant delivering fast, conversational answers.</p>
+                                    <a href="https://www.perplexity.ai/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Gamma.ai -->
+                        <div class="flip-card" data-category="content">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-chart-line card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Gamma.ai</h3>
+                                    <p class="text-sm">AI presentations</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Gamma.ai</h3>
+                                    <p class="text-sm mb-4">Create slide-style presentations from text with generative AI magic.</p>
+                                    <a href="https://gamma.app/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Napkin.ai -->
+                        <div class="flip-card" data-category="visual">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-pen-nib card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Napkin.ai</h3>
+                                    <p class="text-sm">Instant idea visuals</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Napkin.ai</h3>
+                                    <p class="text-sm mb-4">Turns your thoughts into visuals for instant idea sharing.</p>
+                                    <a href="https://www.napkin.ai/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Adobe Firefly -->
+                        <div class="flip-card" data-category="visual">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-paint-brush card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Adobe Firefly</h3>
+                                    <p class="text-sm">Creative generation</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Adobe Firefly</h3>
+                                    <p class="text-sm mb-4">Create and enhance content with Adobe's generative AI tools.</p>
+                                    <a href="https://firefly.adobe.com/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Ideogram -->
+                        <div class="flip-card" data-category="visual">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-image card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Ideogram</h3>
+                                    <p class="text-sm">Text-to-image art</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Ideogram</h3>
+                                    <p class="text-sm mb-4">Generate artistic visuals and creative images from text prompts.</p>
+                                    <a href="https://ideogram.ai/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Heygen AI Video -->
+                        <div class="flip-card" data-category="visual">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-video card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Heygen AI Video</h3>
+                                    <p class="text-sm">AI video creation</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Heygen AI Video</h3>
+                                    <p class="text-sm mb-4">Create videos using AI avatars and customizable scripts.</p>
+                                    <a href="https://www.heygen.com/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Synthesia -->
+                        <div class="flip-card" data-category="visual">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-film card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Synthesia</h3>
+                                    <p class="text-sm">Text-to-video</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Synthesia</h3>
+                                    <p class="text-sm mb-4">Produce professional AI videos from plain text with avatars.</p>
+                                    <a href="https://www.synthesia.io/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pictory -->
+                        <div class="flip-card" data-category="visual">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-scissors card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Pictory</h3>
+                                    <p class="text-sm">Video highlights</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Pictory</h3>
+                                    <p class="text-sm mb-4">Turn long content into short, shareable video highlights.</p>
+                                    <a href="https://pictory.ai/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Fliki -->
+                        <div class="flip-card" data-category="audio">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-microphone-alt card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Fliki</h3>
+                                    <p class="text-sm">Text-to-speech video</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Fliki</h3>
+                                    <p class="text-sm mb-4">Convert blog posts into voiceovers and video content in minutes.</p>
+                                    <a href="https://fliki.ai/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Otter.ai -->
+                        <div class="flip-card" data-category="audio">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-comment-dots card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Otter.ai</h3>
+                                    <p class="text-sm">Real-time transcription</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Otter.ai</h3>
+                                    <p class="text-sm mb-4">Capture and transcribe conversations in real-time with AI.</p>
+                                    <a href="https://otter.ai/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Loom -->
+                        <div class="flip-card" data-category="visual">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-video-slash card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Loom</h3>
+                                    <p class="text-sm">Screen recording</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Loom</h3>
+                                    <p class="text-sm mb-4">Record and share screen or video messages instantly.</p>
+                                    <a href="https://www.loom.com/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Zapier -->
+                        <div class="flip-card" data-category="productivity">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fas fa-sync-alt card-icon"></i>
+                                    <h3 class="text-xl font-semibold text-navy">Zapier</h3>
+                                    <p class="text-sm">Workflow automation</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3 class="text-xl font-semibold mb-2">Zapier</h3>
+                                    <p class="text-sm mb-4">Automate workflows and connect your favorite apps without coding.</p>
+                                    <a href="https://zapier.com/" target="_blank" class="bg-white text-navy px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition duration-300">Explore Tool</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="scroll-btn scroll-right" aria-label="Scroll right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-search text-emerald mr-2"></i>
-                    <a href="https://www.perplexity.ai/" target="_blank" class="group-hover:underline">Perplexity</a>
-                </h3>
-                <p class="text-gray-700">An AI-powered search assistant delivering fast, conversational answers.</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-chart-line text-emerald mr-2"></i>
-                    <a href="https://gamma.app/" target="_blank" class="group-hover:underline">Gamma.ai</a>
-                </h3>
-                <p class="text-gray-700">Create slide-style presentations from text with generative AI magic.</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-pen-nib text-emerald mr-2"></i>
-                    <a href="https://www.napkin.ai/" target="_blank" class="group-hover:underline">Napkin.ai</a>
-                </h3>
-                <p class="text-gray-700">Turns your thoughts into visuals for instant idea sharing.</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-paint-brush text-emerald mr-2"></i>
-                    <a href="https://firefly.adobe.com/" target="_blank" class="group-hover:underline">Adobe Firefly</a>
-                </h3>
-                <p class="text-gray-700">Create and enhance content with Adobe’s generative AI tools.</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-image text-emerald mr-2"></i>
-                    <a href="https://ideogram.ai/" target="_blank" class="group-hover:underline">Ideogram</a>
-                </h3>
-                <p class="text-gray-700">Generate artistic visuals and creative images from text prompts.</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-video text-emerald mr-2"></i>
-                    <a href="https://www.heygen.com/" target="_blank" class="group-hover:underline">Heygen AI Video</a>
-                </h3>
-                <p class="text-gray-700">Create videos using AI avatars and customizable scripts.</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-film text-emerald mr-2"></i>
-                    <a href="https://www.synthesia.io/" target="_blank" class="group-hover:underline">Synthesia</a>
-                </h3>
-                <p class="text-gray-700">Produce professional AI videos from plain text with avatars.</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-scissors text-emerald mr-2"></i>
-                    <a href="https://pictory.ai/" target="_blank" class="group-hover:underline">Pictory</a>
-                </h3>
-                <p class="text-gray-700">Turn long content into short, shareable video highlights.</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-microphone-alt text-emerald mr-2"></i>
-                    <a href="https://fliki.ai/" target="_blank" class="group-hover:underline">Fliki</a>
-                </h3>
-                <p class="text-gray-700">Convert blog posts into voiceovers and video content in minutes.</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-comment-dots text-emerald mr-2"></i>
-                    <a href="https://otter.ai/" target="_blank" class="group-hover:underline">Otter.ai</a>
-                </h3>
-                <p class="text-gray-700">Capture and transcribe conversations in real-time with AI.</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-video-slash text-emerald mr-2"></i>
-                    <a href="https://www.loom.com/" target="_blank" class="group-hover:underline">Loom</a>
-                </h3>
-                <p class="text-gray-700">Record and share screen or video messages instantly.</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
-                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
-                    <i class="fas fa-sync-alt text-emerald mr-2"></i>
-                    <a href="https://zapier.com/" target="_blank" class="group-hover:underline">Zapier</a>
-                </h3>
-                <p class="text-gray-700">Automate workflows and connect your favorite apps without coding.</p>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="btn-primary" id="show-all-resources">View All Resources</a>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-	   </section>
-   
+
+                  
     <!-- Legal Disclaimer -->
     <section id="legal" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
@@ -738,69 +1049,103 @@ Write 5 quick questions for a post-event feedback form that evaluates content, d
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
+      <script>
+        // Wait for the DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
             const menuButton = document.querySelector('.menu-button');
             const mobileMenu = document.querySelector('.mobile-menu');
             
-            menuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('active');
-                const icon = menuButton.querySelector('i');
-                if (mobileMenu.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                });
+            }
             
-            // Close mobile menu when clicking on a link
-            const mobileLinks = document.querySelectorAll('.mobile-menu a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileMenu.classList.remove('active');
-                    const icon = menuButton.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+            // Category tabs functionality
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            const flipCards = document.querySelectorAll('.flip-card');
+            
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Update ARIA selected state
+                    categoryTabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+                    this.setAttribute('aria-selected', 'true');
+                    
+                    // Get the selected category
+                    const selectedCategory = this.getAttribute('data-category');
+                    
+                    // Filter flip cards based on selected category
+                    flipCards.forEach(card => {
+                        if (selectedCategory === 'all' || card.getAttribute('data-category') === selectedCategory) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
                 });
             });
             
-            // Smooth scrolling for all anchor links
+            // Carousel scroll buttons
+            const carousel = document.querySelector('.resource-carousel');
+            const scrollLeftBtn = document.querySelector('.scroll-left');
+            const scrollRightBtn = document.querySelector('.scroll-right');
+            
+            if (scrollLeftBtn && scrollRightBtn && carousel) {
+                scrollLeftBtn.addEventListener('click', function() {
+                    carousel.scrollBy({ left: -600, behavior: 'smooth' });
+                });
+                
+                scrollRightBtn.addEventListener('click', function() {
+                    carousel.scrollBy({ left: 600, behavior: 'smooth' });
+                });
+            }
+            
+            // "View All Resources" button functionality
+            const showAllResourcesBtn = document.getElementById('show-all-resources');
+            if (showAllResourcesBtn) {
+                showAllResourcesBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Find the "all" category tab and trigger a click on it
+                    const allTab = document.querySelector('.category-tab[data-category="all"]');
+                    if (allTab) {
+                        allTab.click();
+                    }
+                    
+                    // Scroll to resources section
+                    document.getElementById('resources').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+            
+            // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
+                    
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
                     
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 70,
-                            behavior: 'smooth'
-                        });
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Close mobile menu if it's open
+                        if (mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.remove('active');
+                        }
                     }
                 });
             });
-            
-            // Collapsible sections
-            const collapsibles = document.querySelectorAll('.collapsible-header');
-            collapsibles.forEach(collapsible => {
-                collapsible.addEventListener('click', function() {
-                    const content = this.nextElementSibling;
-                    const icon = this.querySelector('i');
-                    
-                    content.classList.toggle('active');
-                    if (content.classList.contains('active')) {
-                        icon.style.transform = 'rotate(180deg)';
-                    } else {
-                        icon.style.transform = 'rotate(0)';
-                    }
-                });
-            });
-            
-            
+        });
     </script>
+
+
+ 
 </body>
 </html>
