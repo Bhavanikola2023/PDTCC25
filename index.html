@@ -52,8 +52,8 @@
             background-color: #0f172a;
         }
         .hero {
-            background: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.6)), url('https://images.unsplash.com/photo-1644088379091-d574269d422f?q=80&w=1993&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-
+            background:  linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)),url('https://images.unsplash.com/photo-1644088379091-d574269d422f?q=80&w=1993&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
             background-position: center;
             color: white;
         }
@@ -163,7 +163,7 @@
                 Streamline administrative tasks, ensure compliance, and reclaim valuable time with an AI assistant designed specifically for higher education professionals.
             </p>
 <i class="fas fa-robot text-white text-4xl mr-2"></i>
-            <a href="https://chatgpt.com/g/g-6803151658fc8191b9d3781c32e7a654-aisistant-for-the-best-admins-in-higher-ed" class="btn-primary">Launch Admin GPT</a>
+            <a href="https://chatgpt.com/g/g-6803151658fc8191b9d3781c32e7a654-aisistant-for-the-best-admins-in-higher-ed" class="btn-primary" target="_blank">Launch Admin GPT</a>
         </div>
     </section>
 
@@ -255,242 +255,260 @@
 
     <!-- Use Cases & Prompt Examples -->
     <section id="use-cases" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-navy">Use Cases & Prompt Examples</h2>
-            
-            <div class="max-w-4xl mx-auto space-y-6">
-                <!-- Use Case 1 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="collapsible-header w-full px-6 py-4 text-left font-bold text-navy bg-gray-100 hover:bg-gray-200 flex justify-between items-center">
-                        <span>📨 User Prompt Example (Email & Comms)</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
-                    </button>
-                    <div class="collapsible-content p-6">
-                        <div class="use-case pl-4">
-                            <h4 class="font-bold text-lg mb-2">Example Prompt:</h4>
-                            <p class="mb-4 bg-gray-100 p-3 rounded">“Can you draft an email to a student letting them know they’re not eligible to graduate this semester due to missing credits?”</p>
-                            
-                            <h4 class="font-bold text-lg mb-2">Assistant Response:</h4>
-                       
-<div class="bg-gray-50 p-4 rounded">
-    <p class="mb-3">Before I draft the email, I need to clarify a few key points to ensure it's appropriate, effective, and compliant:</p>
-    
-    <ul class="list-disc pl-5 mb-4">
-        <li><strong>FERPA Compliance:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Do you have the student’s written consent on file to communicate academic details via email?</li>
-                <li>Should I include their name, ID, or any specific course information?</li>
-            </ul>
-        </li>
-        <li><strong>Tone and Purpose:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Should the message be supportive, firm, or strictly informational?</li>
-                <li>Do you want to express empathy or just stick to the facts?</li>
-            </ul>
-        </li>
-        <li><strong>Next Steps for the Student:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Should the email include advising resources, a link to reapply for graduation, or instructions to meet with a counselor?</li>
-                <li>Is there a deadline or appeal process they should be aware of?</li>
-            </ul>
-        </li>
-        <li><strong>Audience and Sender:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Who is sending this message (office, department, or specific person)?</li>
-                <li>Will this be sent as a one-off email or a template used for multiple students?</li>
-            </ul>
-        </li>
-        <li><strong>Preferred Format:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Do you want the output in plain text, a formatted email block, or downloadable Word format?</li>
-            </ul>
-        </li>
-    </ul>
+        <!-- ✨🧠 Full Session Summary + GPT Prompt Kit (interactive card layout) -->
+<!-- If you’re not already using Alpine, the <details>/<summary> elements below
+     give you built‑in, keyboard‑accessible toggle behaviour with no extra JS. -->
 
-    <p class="text-sm italic">The GPT asks these clarifying questions to ensure the email respects privacy laws, maintains the right tone, and includes helpful next steps tailored to the student’s situation and institutional context.</p>
+<div id="resources" class="tab-content py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 text-navy">
+      🧠 Full Session Summary&nbsp;+&nbsp;GPT Prompt Kit <span class="text-base font-normal">(All&nbsp;17&nbsp;Sessions)</span>
+    </h2>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- ╭──────────────────────── 1 ────────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-bolt text-emerald mr-2"></i>
+            1.&nbsp;Unlocking Efficiency: Harnessing the Power of AI
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Leveraging AI for daily admin tasks</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Suggest ways I can use generative AI to streamline my administrative workload. Include ethical concerns and tools suitable for higher ed compliance (FERPA/ADA).</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 2 ────────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-seedling text-emerald mr-2"></i>
+            2.&nbsp;Taking Initiative
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Personal/professional growth through proactivity</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Coach me on how to show more initiative in my admin role. Give examples relevant to higher ed and include a mini action plan.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 3 ────────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-rocket text-emerald mr-2"></i>
+            3.&nbsp;Prompted to Perform – GenAI for Next‑Level Admin Support
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Writing better prompts for admin use‑cases</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Help me craft reusable prompts for tasks like scheduling, email drafts, and data entry—tailored for university administration.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 4 ────────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-comment-dots text-emerald mr-2"></i>
+            4.&nbsp;Elevate Your Impact – Communication Strategies
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Sharpening communication styles</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Evaluate my email draft for tone and clarity, and suggest how to make it more inclusive and impactful for university staff.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 5 ────────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-clock text-emerald mr-2"></i>
+            5.&nbsp;Time Management
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Planning and productivity</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Create a prioritized schedule for my week, considering meetings, project deadlines, and time for email catch‑up.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 6 ────────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-user-friends text-emerald mr-2"></i>
+            6.&nbsp;Leveraging AI to Engage and &nbsp Empower
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Personalized AI in student/staff engagement</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Suggest ways I can use AI tools to personalize student communications while maintaining FERPA compliance.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 7 ────────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-heart text-emerald mr-2"></i>
+            7.&nbsp;Cultivating a Growth Mindset
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Adopting resilience and learning</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Create a reflective journal prompt that encourages a growth mindset for an administrative professional overcoming work challenges.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 8 ────────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-project-diagram text-emerald mr-2"></i>
+            8.&nbsp;Big Picture Thinking
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Strategic decision‑making</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Help me map a current process (e.g., budget approval or faculty onboarding) to a strategic overview with dependencies and long‑term impact.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 9 ────────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-users text-emerald mr-2"></i>
+            9.&nbsp;Valuing a Multi‑Generational  College
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Navigating intergenerational dynamics</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Generate best practices for cross‑generational communication among faculty, staff, and students at a university.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 10 ───────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-envelope-open-text text-emerald mr-2"></i>
+            10.&nbsp;Writing for Success – Effective Email Communications
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Email etiquette and formatting</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Revise this email for clarity, tone, and professionalism. Make sure it follows higher‑ed etiquette and is ADA‑friendly.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 11 ───────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-smile text-emerald mr-2"></i>
+            11.&nbsp;Customer Service Excellence
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Handling difficult people and service quality</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+List common student or faculty service complaints and offer AI‑based templates or responses to address each scenario.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 12 ───────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-folder-open text-emerald mr-2"></i>
+            12.&nbsp;Upgrade Your Organizational  Skills
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> File, time, and space management</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Design a file‑naming and folder structure system for managing student records, project files, and meeting notes.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 13 ───────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-video text-emerald mr-2"></i>
+            13.&nbsp;Maximize the Power of  MS Teams
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Communication through MS Teams</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Give me a quick‑start guide for setting up, running, and following up on a virtual meeting in MS Teams, including accessibility reminders.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 14 ───────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-handshake text-emerald mr-2"></i>
+            14.&nbsp;Meeting Lifecycle  Management
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Planning and documenting meetings</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Draft a meeting agenda and follow‑up email for a department meeting that includes updates, action items, and compliance reminders.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 15 ───────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-chalkboard text-emerald mr-2"></i>
+            15.&nbsp;Slide Decks or Visuals for  Session Recaps
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Post‑session content delivery</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Summarize this session into a 3‑slide presentation with headings, key points, and follow‑up actions in plain language.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 16 ───────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-newspaper text-emerald mr-2"></i>
+            16.&nbsp;Workshop Recap Newsletter
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Wrapping up the event for internal communication</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Create a 1‑paragraph recap for each of today’s sessions, formatted for inclusion in a newsletter to university staff.</pre>
+        </details>
+      </div>
+
+      <!-- ╭──────────────────────── 17 ───────────────────────╮ -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+        <details>
+          <summary class="text-xl font-semibold text-navy flex items-center cursor-pointer">
+            <i class="fas fa-question-circle text-emerald mr-2"></i>
+            17.&nbsp;Workshop Feedback &  Improvement
+          </summary>
+          <p class="mt-3 text-gray-700"><strong>Focus:</strong> Collecting feedback & iterating</p>
+          <p class="mt-2 text-sm"><strong>Prompt:</strong></p>
+          <pre class="whitespace-pre-wrap bg-gray-100 p-3 rounded-md text-sm">
+Write 5 quick questions for a post-event feedback form that evaluates content, delivery, and AI session usefulness.</pre>
+        </details>
+      </div>
+
+    </div>
+  </div>
 </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Use Case 2 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="collapsible-header w-full px-6 py-4 text-left font-bold text-navy bg-gray-100 hover:bg-gray-200 flex justify-between items-center">
-                        <span>🗓️ User Prompt Example (Scheduling)</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
-                    </button>
-                    <div class="collapsible-content p-6">
-                        <div class="use-case pl-4">
-                            <h4 class="font-bold text-lg mb-2">Example Prompt:</h4>
-                            <p class="mb-4 bg-gray-100 p-3 rounded">"Can you help me schedule a meeting with the department chairs and the dean next week?"</p>
-                            
-                            <h4 class="font-bold text-lg mb-2">Assistant Response:</h4>
-                            <div class="bg-gray-50 p-4 rounded">
-    <p class="mb-3">Before I begin scheduling, I need a few clarifying details to ensure the meeting setup is smooth and efficient:</p>
-    
-    <ul class="list-disc pl-5 mb-4">
-        <li><strong>Goal and Context:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>What is the purpose of the meeting?</li>
-                <li>Is there an urgency or specific topic that drives the need for this timing?</li>
-            </ul>
-        </li>
-        <li><strong>Participants and Roles:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Who exactly needs to attend? Please list names or titles (e.g., “all chairs + Dean Carter”).</li>
-                <li>Are any assistants or note-takers required?</li>
-            </ul>
-        </li>
-        <li><strong>Time & Format Preferences:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>What date range are you considering? (You mentioned “next week” — do you prefer Mon–Fri, or are weekends okay?)</li>
-                <li>Preferred duration (e.g., 30 min, 1 hour)?</li>
-                <li>Will it be in-person, Zoom, or hybrid?</li>
-            </ul>
-        </li>
-        <li><strong>System Constraints & Tools:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Should I check against a shared Outlook, Google, or campus calendar?</li>
-                <li>Are there any blackout dates, holidays, or academic events to avoid?</li>
-            </ul>
-        </li>
-        <li><strong>Output Format:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Do you want a proposed schedule matrix, a ready-to-send invite, or a list of top 3 possible time slots?</li>
-            </ul>
-        </li>
-    </ul>
 
-    <p class="text-sm italic">These clarifying questions help ensure the meeting is purpose-driven, inclusive of the right stakeholders, and avoids scheduling conflicts. The GPT assists with coordination based on the tools and preferences you specify.</p>
-</div>
-
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Use Case 3 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="collapsible-header w-full px-6 py-4 text-left font-bold text-navy bg-gray-100 hover:bg-gray-200 flex justify-between items-center">
-                        <span>🧾 User Prompt Example (Meeting Support)</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
-                    </button>
-                    <div class="collapsible-content p-6">
-                        <div class="use-case pl-4">
-                            <h4 class="font-bold text-lg mb-2">Example Prompt:</h4>
-                            <p class="mb-4 bg-gray-100 p-3 rounded">"Can you prep an agenda for the upcoming strategic planning committee meeting?"</p>
-                            
-                            <h4 class="font-bold text-lg mb-2">Assistant Response:</h4>
-                            <div class="bg-gray-50 p-4 rounded">
-    <p class="mb-3">Before I create the agenda, I need a few details to ensure it's clear, purposeful, and ready for sharing:</p>
-    
-    <ul class="list-disc pl-5 mb-4">
-        <li><strong>Meeting Purpose & Goals:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>What’s the main objective of the meeting?</li>
-                <li>Are there specific decisions, updates, or feedback needed?</li>
-            </ul>
-        </li>
-        <li><strong>Participants & Roles:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Who will attend (titles or names)?</li>
-                <li>Who is facilitating or taking notes?</li>
-                <li>Should I list time slots for each speaker or item?</li>
-            </ul>
-        </li>
-        <li><strong>Structure & Time:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>What’s the date and duration of the meeting?</li>
-                <li>Do you want the agenda broken into time blocks or just bulleted?</li>
-            </ul>
-        </li>
-        <li><strong>Topics & Prep Materials:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Are there standing items (e.g., approval of minutes, announcements)?</li>
-                <li>Any documents that should be pre-reviewed or attached?</li>
-                <li>Should I include links or reminders for action items?</li>
-            </ul>
-        </li>
-        <li><strong>Output Format:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Do you want the agenda in Word, PDF, or plain text?</li>
-                <li>Will it be shared by email, printed, or posted on a platform like Teams or Canvas?</li>
-            </ul>
-        </li>
-    </ul>
-
-    <p class="text-sm italic">These questions help ensure the agenda is aligned with the meeting’s purpose, structured for clarity, and accessible for all participants. The GPT will generate a polished, ADA-aligned agenda once
-
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Use Case 4 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="collapsible-header w-full px-6 py-4 text-left font-bold text-navy bg-gray-100 hover:bg-gray-200 flex justify-between items-center">
-                        <span>🎪 User Prompt Example (Event Ops)</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
-                    </button>
-                    <div class="collapsible-content p-6">
-                        <div class="use-case pl-4">
-                            <h4 class="font-bold text-lg mb-2">Example Prompt:</h4>
-                            <p class="mb-4 bg-gray-100 p-3 rounded">"Can you help me plan the spring faculty recognition reception?."</p>
-                            
-                            <h4 class="font-bold text-lg mb-2">Assistant Response:</h4>
-                           <div class="bg-gray-50 p-4 rounded">
-    <p class="mb-3">Before I start planning the event, I need a few key details to guide the process and ensure everything runs smoothly:</p>
-    
-    <ul class="list-disc pl-5 mb-4">
-        <li><strong>Event Purpose & Audience:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Is this event for all faculty, award recipients, or a specific department?</li>
-                <li>Are there any VIPs, guest speakers, or external invitees?</li>
-            </ul>
-        </li>
-        <li><strong>Date, Time, and Duration:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Do you have a target date or range in mind?</li>
-                <li>Should I avoid any campus closures, religious holidays, or finals?</li>
-            </ul>
-        </li>
-        <li><strong>Location & Format:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Is it on-campus, off-site, or hybrid?</li>
-                <li>Do you have a preferred room or venue already reserved?</li>
-            </ul>
-        </li>
-        <li><strong>Logistics:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Will you need catering, AV setup, signage, or parking instructions?</li>
-                <li>Are there any accommodations or accessibility needs to plan for?</li>
-            </ul>
-        </li>
-        <li><strong>Communication & Promotion:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Should I draft a save-the-date, flyer, or email invite?</li>
-                <li>Will RSVPs be collected via a form, email, or system like Eventbrite?</li>
-            </ul>
-        </li>
-        <li><strong>Budget & Approval:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Is there a budget limit or department funding source?</li>
-                <li>Do you need help with purchase requests or vendor tracking?</li>
-            </ul>
-        </li>
-        <li><strong>Output Format:</strong>
-            <ul class="list-disc pl-5 mt-1">
-                <li>Do you want a timeline, checklist, event brief, or all of the above?</li>
-            </ul>
-        </li>
-    </ul>
-
-    <p class="text-sm italic">These questions help ensure the event is aligned with your goals, thoughtfully planned, and fully supported. The GPT uses your input to create a clear, detailed, and accessible plan tailored to your audience and vision.</p>
-</div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 <!-- Resources Tab Content -->
 <div id="resources" class="tab-content py-16 bg-gray-50">
