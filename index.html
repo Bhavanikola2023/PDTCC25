@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher Ed Administrative Assistant GPT</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .bg-navy {
+            background-color: #1a365d;
+        }
+        .bg-emerald {
+            background-color: #047857;
+        }
+        .text-navy {
+            color: #1a365d;
+        }
+        .text-emerald {
+            color: #047857;
+        }
+        .btn-primary {
+            background-color: #047857;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            background-color: #065f46;
+        }
+        .btn-secondary {
+            background-color: #1a365d;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+        .btn-secondary:hover {
+            background-color: #0f172a;
+        }
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .collapsible-content.active {
+            max-height: 1000px;
+        }
+        .use-case {
+            border-left: 4px solid #047857;
+        }
+        .mobile-menu {
+            display: none;
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        th {
+            background-color: #f8fafc;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        @media (max-width: 768px) {
+            .table-container {
+                overflow-x: auto;
+            }
+            .desktop-menu {
+                display: none;
+            }
+            .menu-button {
+                display: block;
+            }
+        }
+        @media (min-width: 769px) {
+            .menu-button {
+                display: none;
+            }
+        }
+        .invalid {
+            border-color: #e53e3e;
+        }
+        .error-message {
+            color: #e53e3e;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-robot text-emerald text-2xl mr-2"></i>
+                    <span class="font-bold text-lg text-navy">Admin Assistant GPT</span>
+                </div>
+                
+                <div class="desktop-menu">
+                    <ul class="flex space-x-6">
+                        <li><a href="#how-it-works" class="text-navy hover:text-emerald">How It Works</a></li>
+                        <li><a href="#use-cases" class="text-navy hover:text-emerald">Use Cases</a></li>
+			<li><a href="#resources" class="text-navy hover:text-emerald">Resources</a></li>
+                        <li><a href="#legal" class="text-navy hover:text-emerald">Disclaimer</a></li>
+  			<li><a href="#contact" class="text-navy hover:text-emerald">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <button class="menu-button text-navy">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="mobile-menu bg-white py-4">
+                <ul class="space-y-3">
+                    <li><a href="#how-it-works" class="block text-navy hover:text-emerald">How It Works</a></li>
+                  <li><a href="#resources" class="text-navy hover:text-emerald">Resources</a></li>
+                    <li><a href="#use-cases" class="block text-navy hover:text-emerald">Use Cases</a></li>
+                    <li><a href="#legal" class="block text-navy hover:text-emerald">Disclaimer</a></li>
+		<li><a href="#contact" class="block text-navy hover:text-emerald">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">Meet Your AI Assistant for Higher Ed Admins</h1>
+            <p class="text-xl md:text-2xl mb-8">FERPA-Aware. Precision-First. Built for Real Work.</p>
+            <p class="max-w-3xl mx-auto mb-8 text-lg">
+                Streamline administrative tasks, ensure compliance, and reclaim valuable time with an AI assistant designed specifically for higher education professionals.
+            </p>
+<i class="fas fa-robot text-white text-4xl mr-2"></i>
+            <a href="https://chatgpt.com/g/g-6803151658fc8191b9d3781c32e7a654-aisistant-for-the-best-admins-in-higher-ed" class="btn-primary">Launch Admin GPT</a>
+        </div>
+    </section>
+
+    <!-- Demo Example -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-gray-100 p-6 rounded-lg shadow-sm">
+                <div class="flex items-start mb-6">
+                    <div class="bg-gray-200 rounded-full p-3 mr-4">
+                        <i class="fas fa-user text-gray-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold mb-2">User:</p>
+                        <p>"I need help drafting an email to faculty about the upcoming accreditation visit."</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-emerald rounded-full p-3 mr-4">
+                        <i class="fas fa-robot text-white"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold mb-2">Admin Assistant:</p>
+                        <p class="mb-2">I'll help you draft that email. Before I begin, could you provide me with:</p>
+                        <ul class="list-disc pl-5 mb-4">
+                            <li>Key details about the accreditation visit (date, time, which accreditor)</li>
+                            <li>Specific actions faculty need to take to prepare</li>
+                            <li>Your preferred tone (formal, conversational, urgent)</li>
+                        </ul>
+                        <p>This information will help me create a FERPA-compliant, effective communication.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-navy">How It Works</h2>
+            
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-emerald">
+                    <i class="fas fa-question-circle mr-2"></i>
+                    The "Ask Before Act" Principle
+                </h3>
+                <p class="mb-6 text-lg">
+                    This GPT never answers without asking questions first. It clarifies goals, audience, format, and compliance boundaries (FERPA, GLBA, etc.)—then confirms with the user before producing a single output.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="text-emerald text-4xl mb-4">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-navy">Clarify Intent</h4>
+                    <p>The GPT asks targeted questions to understand the full context and requirements of your request.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="text-emerald text-4xl mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-navy">Assess Compliance</h4>
+                    <p>Privacy regulations like FERPA are built into its reasoning process, ensuring your work stays compliant.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="text-emerald text-4xl mb-4">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-navy">Confirm Approach</h4>
+                    <p>Before delivering the final output, the GPT confirms its understanding and approach with you.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="text-emerald text-4xl mb-4">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-navy">Deliver & Refine</h4>
+                    <p>After confirmation, it delivers highly customized results that can be further refined based on your feedback.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- Use Cases & Prompt Examples -->
+    <section id="use-cases" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-navy">Use Cases & Prompt Examples</h2>
+            
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Use Case 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="collapsible-header w-full px-6 py-4 text-left font-bold text-navy bg-gray-100 hover:bg-gray-200 flex justify-between items-center">
+                        <span>📨 User Prompt Example (Email & Comms)</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="collapsible-content p-6">
+                        <div class="use-case pl-4">
+                            <h4 class="font-bold text-lg mb-2">Example Prompt:</h4>
+                            <p class="mb-4 bg-gray-100 p-3 rounded">“Can you draft an email to a student letting them know they’re not eligible to graduate this semester due to missing credits?”</p>
+                            
+                            <h4 class="font-bold text-lg mb-2">Assistant Response:</h4>
+                       
+<div class="bg-gray-50 p-4 rounded">
+    <p class="mb-3">Before I draft the email, I need to clarify a few key points to ensure it's appropriate, effective, and compliant:</p>
+    
+    <ul class="list-disc pl-5 mb-4">
+        <li><strong>FERPA Compliance:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Do you have the student’s written consent on file to communicate academic details via email?</li>
+                <li>Should I include their name, ID, or any specific course information?</li>
+            </ul>
+        </li>
+        <li><strong>Tone and Purpose:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Should the message be supportive, firm, or strictly informational?</li>
+                <li>Do you want to express empathy or just stick to the facts?</li>
+            </ul>
+        </li>
+        <li><strong>Next Steps for the Student:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Should the email include advising resources, a link to reapply for graduation, or instructions to meet with a counselor?</li>
+                <li>Is there a deadline or appeal process they should be aware of?</li>
+            </ul>
+        </li>
+        <li><strong>Audience and Sender:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Who is sending this message (office, department, or specific person)?</li>
+                <li>Will this be sent as a one-off email or a template used for multiple students?</li>
+            </ul>
+        </li>
+        <li><strong>Preferred Format:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Do you want the output in plain text, a formatted email block, or downloadable Word format?</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p class="text-sm italic">The GPT asks these clarifying questions to ensure the email respects privacy laws, maintains the right tone, and includes helpful next steps tailored to the student’s situation and institutional context.</p>
+</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Use Case 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="collapsible-header w-full px-6 py-4 text-left font-bold text-navy bg-gray-100 hover:bg-gray-200 flex justify-between items-center">
+                        <span>🗓️ User Prompt Example (Scheduling)</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="collapsible-content p-6">
+                        <div class="use-case pl-4">
+                            <h4 class="font-bold text-lg mb-2">Example Prompt:</h4>
+                            <p class="mb-4 bg-gray-100 p-3 rounded">"Can you help me schedule a meeting with the department chairs and the dean next week?"</p>
+                            
+                            <h4 class="font-bold text-lg mb-2">Assistant Response:</h4>
+                            <div class="bg-gray-50 p-4 rounded">
+    <p class="mb-3">Before I begin scheduling, I need a few clarifying details to ensure the meeting setup is smooth and efficient:</p>
+    
+    <ul class="list-disc pl-5 mb-4">
+        <li><strong>Goal and Context:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>What is the purpose of the meeting?</li>
+                <li>Is there an urgency or specific topic that drives the need for this timing?</li>
+            </ul>
+        </li>
+        <li><strong>Participants and Roles:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Who exactly needs to attend? Please list names or titles (e.g., “all chairs + Dean Carter”).</li>
+                <li>Are any assistants or note-takers required?</li>
+            </ul>
+        </li>
+        <li><strong>Time & Format Preferences:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>What date range are you considering? (You mentioned “next week” — do you prefer Mon–Fri, or are weekends okay?)</li>
+                <li>Preferred duration (e.g., 30 min, 1 hour)?</li>
+                <li>Will it be in-person, Zoom, or hybrid?</li>
+            </ul>
+        </li>
+        <li><strong>System Constraints & Tools:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Should I check against a shared Outlook, Google, or campus calendar?</li>
+                <li>Are there any blackout dates, holidays, or academic events to avoid?</li>
+            </ul>
+        </li>
+        <li><strong>Output Format:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Do you want a proposed schedule matrix, a ready-to-send invite, or a list of top 3 possible time slots?</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p class="text-sm italic">These clarifying questions help ensure the meeting is purpose-driven, inclusive of the right stakeholders, and avoids scheduling conflicts. The GPT assists with coordination based on the tools and preferences you specify.</p>
+</div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Use Case 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="collapsible-header w-full px-6 py-4 text-left font-bold text-navy bg-gray-100 hover:bg-gray-200 flex justify-between items-center">
+                        <span>🧾 User Prompt Example (Meeting Support)</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="collapsible-content p-6">
+                        <div class="use-case pl-4">
+                            <h4 class="font-bold text-lg mb-2">Example Prompt:</h4>
+                            <p class="mb-4 bg-gray-100 p-3 rounded">"Can you prep an agenda for the upcoming strategic planning committee meeting?"</p>
+                            
+                            <h4 class="font-bold text-lg mb-2">Assistant Response:</h4>
+                            <div class="bg-gray-50 p-4 rounded">
+    <p class="mb-3">Before I create the agenda, I need a few details to ensure it's clear, purposeful, and ready for sharing:</p>
+    
+    <ul class="list-disc pl-5 mb-4">
+        <li><strong>Meeting Purpose & Goals:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>What’s the main objective of the meeting?</li>
+                <li>Are there specific decisions, updates, or feedback needed?</li>
+            </ul>
+        </li>
+        <li><strong>Participants & Roles:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Who will attend (titles or names)?</li>
+                <li>Who is facilitating or taking notes?</li>
+                <li>Should I list time slots for each speaker or item?</li>
+            </ul>
+        </li>
+        <li><strong>Structure & Time:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>What’s the date and duration of the meeting?</li>
+                <li>Do you want the agenda broken into time blocks or just bulleted?</li>
+            </ul>
+        </li>
+        <li><strong>Topics & Prep Materials:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Are there standing items (e.g., approval of minutes, announcements)?</li>
+                <li>Any documents that should be pre-reviewed or attached?</li>
+                <li>Should I include links or reminders for action items?</li>
+            </ul>
+        </li>
+        <li><strong>Output Format:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Do you want the agenda in Word, PDF, or plain text?</li>
+                <li>Will it be shared by email, printed, or posted on a platform like Teams or Canvas?</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p class="text-sm italic">These questions help ensure the agenda is aligned with the meeting’s purpose, structured for clarity, and accessible for all participants. The GPT will generate a polished, ADA-aligned agenda once
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Use Case 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="collapsible-header w-full px-6 py-4 text-left font-bold text-navy bg-gray-100 hover:bg-gray-200 flex justify-between items-center">
+                        <span>🎪 User Prompt Example (Event Ops)</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="collapsible-content p-6">
+                        <div class="use-case pl-4">
+                            <h4 class="font-bold text-lg mb-2">Example Prompt:</h4>
+                            <p class="mb-4 bg-gray-100 p-3 rounded">"Can you help me plan the spring faculty recognition reception?."</p>
+                            
+                            <h4 class="font-bold text-lg mb-2">Assistant Response:</h4>
+                           <div class="bg-gray-50 p-4 rounded">
+    <p class="mb-3">Before I start planning the event, I need a few key details to guide the process and ensure everything runs smoothly:</p>
+    
+    <ul class="list-disc pl-5 mb-4">
+        <li><strong>Event Purpose & Audience:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Is this event for all faculty, award recipients, or a specific department?</li>
+                <li>Are there any VIPs, guest speakers, or external invitees?</li>
+            </ul>
+        </li>
+        <li><strong>Date, Time, and Duration:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Do you have a target date or range in mind?</li>
+                <li>Should I avoid any campus closures, religious holidays, or finals?</li>
+            </ul>
+        </li>
+        <li><strong>Location & Format:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Is it on-campus, off-site, or hybrid?</li>
+                <li>Do you have a preferred room or venue already reserved?</li>
+            </ul>
+        </li>
+        <li><strong>Logistics:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Will you need catering, AV setup, signage, or parking instructions?</li>
+                <li>Are there any accommodations or accessibility needs to plan for?</li>
+            </ul>
+        </li>
+        <li><strong>Communication & Promotion:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Should I draft a save-the-date, flyer, or email invite?</li>
+                <li>Will RSVPs be collected via a form, email, or system like Eventbrite?</li>
+            </ul>
+        </li>
+        <li><strong>Budget & Approval:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Is there a budget limit or department funding source?</li>
+                <li>Do you need help with purchase requests or vendor tracking?</li>
+            </ul>
+        </li>
+        <li><strong>Output Format:</strong>
+            <ul class="list-disc pl-5 mt-1">
+                <li>Do you want a timeline, checklist, event brief, or all of the above?</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p class="text-sm italic">These questions help ensure the event is aligned with your goals, thoughtfully planned, and fully supported. The GPT uses your input to create a clear, detailed, and accessible plan tailored to your audience and vision.</p>
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Resources Tab Content -->
+<div id="resources" class="tab-content py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-navy">✨ AI Tools & Resources</h2>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Resource Card Template -->
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-lightbulb text-emerald mr-2"></i>
+                    <a href="https://notebooklm.google/" target="_blank" class="group-hover:underline">Google Notebook LM</a>
+                </h3>
+                <p class="text-gray-700">An AI-powered note-taking assistant that organizes and connects your ideas.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-flask text-emerald mr-2"></i>
+                    <a href="https://aistudio.google.com/" target="_blank" class="group-hover:underline">Google AI Studio</a>
+                </h3>
+                <p class="text-gray-700">Explore Google’s generative AI tools and research for creative problem-solving.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-search text-emerald mr-2"></i>
+                    <a href="https://www.perplexity.ai/" target="_blank" class="group-hover:underline">Perplexity</a>
+                </h3>
+                <p class="text-gray-700">An AI-powered search assistant delivering fast, conversational answers.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-chart-line text-emerald mr-2"></i>
+                    <a href="https://gamma.app/" target="_blank" class="group-hover:underline">Gamma.ai</a>
+                </h3>
+                <p class="text-gray-700">Create slide-style presentations from text with generative AI magic.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-pen-nib text-emerald mr-2"></i>
+                    <a href="https://www.napkin.ai/" target="_blank" class="group-hover:underline">Napkin.ai</a>
+                </h3>
+                <p class="text-gray-700">Turns your thoughts into visuals for instant idea sharing.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-paint-brush text-emerald mr-2"></i>
+                    <a href="https://firefly.adobe.com/" target="_blank" class="group-hover:underline">Adobe Firefly</a>
+                </h3>
+                <p class="text-gray-700">Create and enhance content with Adobe’s generative AI tools.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-image text-emerald mr-2"></i>
+                    <a href="https://ideogram.ai/" target="_blank" class="group-hover:underline">Ideogram</a>
+                </h3>
+                <p class="text-gray-700">Generate artistic visuals and creative images from text prompts.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-video text-emerald mr-2"></i>
+                    <a href="https://www.heygen.com/" target="_blank" class="group-hover:underline">Heygen AI Video</a>
+                </h3>
+                <p class="text-gray-700">Create videos using AI avatars and customizable scripts.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-film text-emerald mr-2"></i>
+                    <a href="https://www.synthesia.io/" target="_blank" class="group-hover:underline">Synthesia</a>
+                </h3>
+                <p class="text-gray-700">Produce professional AI videos from plain text with avatars.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-scissors text-emerald mr-2"></i>
+                    <a href="https://pictory.ai/" target="_blank" class="group-hover:underline">Pictory</a>
+                </h3>
+                <p class="text-gray-700">Turn long content into short, shareable video highlights.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-microphone-alt text-emerald mr-2"></i>
+                    <a href="https://fliki.ai/" target="_blank" class="group-hover:underline">Fliki</a>
+                </h3>
+                <p class="text-gray-700">Convert blog posts into voiceovers and video content in minutes.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-comment-dots text-emerald mr-2"></i>
+                    <a href="https://otter.ai/" target="_blank" class="group-hover:underline">Otter.ai</a>
+                </h3>
+                <p class="text-gray-700">Capture and transcribe conversations in real-time with AI.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-video-slash text-emerald mr-2"></i>
+                    <a href="https://www.loom.com/" target="_blank" class="group-hover:underline">Loom</a>
+                </h3>
+                <p class="text-gray-700">Record and share screen or video messages instantly.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 group">
+                <h3 class="text-xl font-semibold text-navy mb-2 flex items-center">
+                    <i class="fas fa-sync-alt text-emerald mr-2"></i>
+                    <a href="https://zapier.com/" target="_blank" class="group-hover:underline">Zapier</a>
+                </h3>
+                <p class="text-gray-700">Automate workflows and connect your favorite apps without coding.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   
+    <!-- Legal Disclaimer -->
+    <section id="legal" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-navy">Legal Disclaimer</h2>
+            
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow">
+                <h3 class="text-2xl font-bold mb-6 text-navy">Disclaimer</h3>
+                <p class="mb-6">
+                    This website and its AI-powered tools are provided for informational and educational purposes only and are offered on an "as is" basis without any warranties or guarantees regarding accuracy, reliability, or completeness.
+                </p>
+                <p class="mb-6">
+                    By accessing and using this website, you acknowledge and agree to the following:
+                </p>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-lg font-bold text-navy mb-2">
+                            <i class="fas fa-robot text-emerald mr-2"></i>
+                            AI Accuracy:
+                        </h4>
+                        <p>Outputs are not guaranteed to be accurate or current. Always verify information before acting on it.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-bold text-navy mb-2">
+                            <i class="fas fa-lock text-emerald mr-2"></i>
+                            FERPA and Privacy:
+                        </h4>
+                        <p>This GPT is designed to follow FERPA-aware practices. However, users are solely responsible for ensuring compliance before sharing, storing, or acting on content involving student records or sensitive data.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-bold text-navy mb-2">
+                            <i class="fas fa-shield-alt text-emerald mr-2"></i>
+                            Limitation of Liability:
+                        </h4>
+                        <p>Eclatech Solutions and its affiliates are not liable for any damages arising from the use of this service.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-bold text-navy mb-2">
+                            <i class="fas fa-user-check text-emerald mr-2"></i>
+                            User Responsibility:
+                        </h4>
+                        <p>Use this GPT as a complement to—not a replacement for—your own professional expertise and internal policy knowledge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-navy">Contact Us</h2>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-gray-50 p-8 rounded-lg shadow">
+                    <h3 class="text-2xl font-bold mb-4 text-emerald">Need custom training or deployment in your college or department?</h3>
+                    <p class="mb-8">Our team at Eclatech Solutions specializes in implementing AI solutions for higher education institutions with a focus on compliance and efficiency.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-navy">Contact Information</h4>
+                            <div class="space-y-4">
+                               <p class="flex items-center">
+  <i class="fas fa-building text-emerald mr-3 w-5"></i>
+  <a 
+    href="https://www.eclatechusa.com/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="hover:underline"
+  >
+    Eclatech Solutions
+  </a>
+</p>
+                                </p>
+                                <p class="flex items-center">
+                                    <i class="fas fa-envelope text-emerald mr-3 w-5"></i>
+                                    <a href="mailto:bkola@eclatech.us" class="hover:text-emerald">bkola@eclatech.us</a>
+                                </p>
+                                                                
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-navy">Send Us a Message</h4>
+                 
+<form id="contact-form" action="https://formsubmit.co/bhavanikola@gmail.com" method="POST">
+<input type="hidden" name="_captcha" value="false">
+                                <div>
+                                    <label for="name" class="block mb-1 font-medium">Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-emerald" required>
+                                    <div class="error-message" id="name-error">Please enter your name</div>
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block mb-1 font-medium">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-emerald" required>
+                                    <div class="error-message" id="email-error">Please enter a valid email address</div>
+                                </div>
+                                
+                                <div>
+                                    <label for="institution" class="block mb-1 font-medium">Institution</label>
+                                    <input type="text" id="institution" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-emerald" required>
+                                    <div class="error-message" id="institution-error">Please enter your institution name</div>
+                                </div>
+                                
+                                <div>
+                                    <label for="message" class="block mb-1 font-medium">Message</label>
+                                    <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-emerald" required></textarea>
+                                    <div class="error-message" id="message-error">Please enter your message</div>
+                                </div>
+                                
+                                <div class="pt-2">
+                                    <button type="submit" class="btn-primary w-full">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-robot text-emerald text-2xl mr-2"></i>
+                        <span class="font-bold text-lg">Eclatech Solutions</span>
+                    </div>
+                    <p class="text-sm mt-2">Empowering higher education with intelligent solutions</p>
+                </div>
+                
+                <div>
+                    <p class="text-sm">&copy; 2025 Eclatech Solutions. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('.menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            menuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                const icon = menuButton.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = document.querySelectorAll('.mobile-menu a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    const icon = menuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Smooth scrolling for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Collapsible sections
+            const collapsibles = document.querySelectorAll('.collapsible-header');
+            collapsibles.forEach(collapsible => {
+                collapsible.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    
+                    content.classList.toggle('active');
+                    if (content.classList.contains('active')) {
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        icon.style.transform = 'rotate(0)';
+                    }
+                });
+            });
+            
+            // Form validation
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    ;
+                    
+                    let isValid = true;
+                    
+                    // Validate name
+                    const nameInput = document.getElementById('name');
+                    const nameError = document.getElementById('name-error');
+                    if (!nameInput.value.trim()) {
+                        nameInput.classList.add('invalid');
+                        nameError.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        nameInput.classList.remove('invalid');
+                        nameError.style.display = 'none';
+                    }
+                    
+                    // Validate email
+                    const emailInput = document.getElementById('email');
+                    const emailError = document.getElementById('email-error');
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(emailInput.value.trim())) {
+                        emailInput.classList.add('invalid');
+                        emailError.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        emailInput.classList.remove('invalid');
+                        emailError.style.display = 'none';
+                    }
+                    
+                    // Validate institution
+                    const institutionInput = document.getElementById('institution');
+                    const institutionError = document.getElementById('institution-error');
+                    if (!institutionInput.value.trim()) {
+                        institutionInput.classList.add('invalid');
+                        institutionError.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        institutionInput.classList.remove('invalid');
+                        institutionError.style.display = 'none';
+                    }
+                    
+                    // Validate message
+                    const messageInput = document.getElementById('message');
+                    const messageError = document.getElementById('message-error');
+                    if (!messageInput.value.trim()) {
+                        messageInput.classList.add('invalid');
+                        messageError.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        messageInput.classList.remove('invalid');
+                        messageError.style.display = 'none';
+                    }
+                    
+                    if (isValid) {
+                        // For demo purposes, we'll just show an alert
+                        // In a real application, you would submit the form data
+                        alert('Thank you for your message! We will get back to you soon.');
+                        contactForm.reset();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
